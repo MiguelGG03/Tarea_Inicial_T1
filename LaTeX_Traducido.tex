@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
+\graphicpath{{img/}}
 
 \begin{document}
 
@@ -46,7 +47,7 @@ Muchas técnicas de patrón de reconocimiento distintas para actividades humanas
 \setlegtth{\parindent}{<}\begin{}De hecho, la mayoría de autores proponen el suo de Modelos Ocultos de Marcov (MOM) para modelar actividades humanas. MOM permite modelar acciones como cadenas de Markov [10][11]. Basicamente, MOM genera estados ocutos desde datos observables. En particular, el objetivo final de esta técnica es construir la secuenciade estados ocultos que encaja con cierta secuencia de datos. Para finalmente definir el modelo completo, MOM debe deducir desde los datos los parametros del modelo de na manera confiable. La Figura 1 muestra una representación esquematizada
 sobre como MOM funciona. Cuando las actividades humanas son reconocidas, las acciones que componen las actividades son los estados ocultos, y las respuestas de un sensor son datos bajo estudio. MOM, además, permite el uso de tecnicas de aprendizaje considerando el conocimiento anterior sobre el modelo. Este aprendizaje es algunas veces esencial para ``inducir´´ todas las secuencias de datos posibles requeridas para calcular el MOM. Finalmente, es muy importante notar que el MOM aislado simple puede ser combinado para crear modelos más amplios y más complejos. 
 
-\center\includegraphics{fig_1.png} 
+\center\includegraphics{Fig_1.png} 
 \center\begin{}\textbf{Fig. 1.} Representación gráfica de un MOM
 \setlegtth{\parindent}{<}
         \begin{}

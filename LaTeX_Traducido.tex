@@ -1,22 +1,24 @@
 %&latex
 \documentclass[a4paper]{article}
 
+\usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
+
 \begin{document}
 
 %+Title
 \title{\textbf{Un algoritmo para reconocimiento de actividades humanas de dos fases en el ambito de la Industria 4.0 y procesos humanos dirigidos}
 }
 
-\author{Borja Bordel\(^{1}\), Ram�n Alcarria\(^{1}\), Diego S�nchez-de-Rivera\(^{1}\)}
-\date{\(^{1}\)Universidad Polit�cnica de Madrid, \begin{center}Madrid, Espa�a\end{center}}
+\author{Borja Bordel\(^{1}\), Ramón Alcarria\(^{1}\), Diego Sánchez-de-Rivera\(^{1}\)}
+\date{\(^{1}\)Universidad Politécnica de Madrid, \begin{center}Madrid, España\end{center}}
 \maketitle
 %-Title
 
 \begin{}
-    \textbf{Resumen: }Futuros sistemas industiales, una revoluci�n conocida como Industria 4.0, son visualizados para integrar a la gente en el mundo cibernetico como prsosumidores (proveedores de servicios y consumidores). En este contexto, los procesos impulsados por humanos aparecen como una realidad esencial y aparecen instrumentos para crear bucles de informaci�n de opiniones entre el subsistema social (personas) y el subsistema cibern�tico (componentes tecnol�gicos) son requeridos. Aunque muchos instrumentos distintos han sido propuestos, hoy en d�a las t�cnicas del patr�n de reconocimiento son las m�s prometedoras. Sin embargo, estas soluciones presentan algunos  problemas pendientes. Por ejemplo, estas t�cnicas dependen de el hardware seleccionado para adquirir informaci�n de los usuarios; o presentan un l�mite en la precisi�n del proceso de reconocimiento. Para abordar esta situaci�n, en este art�culo se propone un algor�tmo de dos fases para integrar a las personas en el sistema de la Industria 4.0 y los procesos impulsados por humanos. El algoritmo describe acciones complejas como composiciones de movimientos simples. Acciones complejas reconocidas usando los Modelos Ocultos de Markov, y los movimientos simples son reconocidos usando el Ajuste de Tiempo Din�mico. De esa manera, solo los movimientos son dependientes en el hardware de los dispositivos empleado para recolectar informaci�n, y la precisi�n del reconocimiento de acciones complejas mejora considerablemente. Una validaci�n experimental real es tambi�n llevada a cabo para evaluar y comparar el rendimiento de la soluci�n propuesta.
-\begin{}\textbf{Palabras clave:} Industria 4.0; Patr�n de reconocimiento; Ajuste de Tiempo Din�mico; Inteligencia Artificial; Modelos Ocultos de Markov\end
+    \textbf{Resumen: }Futuros sistemas industiales, una revolución conocida como Industria 4.0, son visualizados para integrar a la gente en el mundo cibernetico como prsosumidores (proveedores de servicios y consumidores). En este contexto, los procesos impulsados por humanos aparecen como una realidad esencial y aparecen instrumentos para crear bucles de información de opiniones entre el subsistema social (personas) y el subsistema cibernético (componentes tecnológicos) son requeridos. Aunque muchos instrumentos distintos han sido propuestos, hoy en día las técnicas del patrón de reconocimiento son las más prometedoras. Sin embargo, estas soluciones presentan algunos  problemas pendientes. Por ejemplo, estas técnicas dependen de el hardware seleccionado para adquirir información de los usuarios; o presentan un límite en la precisión del proceso de reconocimiento. Para abordar esta situación, en este artículo se propone un algorítmo de dos fases para integrar a las personas en el sistema de la Industria 4.0 y los procesos impulsados por humanos. El algoritmo describe acciones complejas como composiciones de movimientos simples. Acciones complejas reconocidas usando los Modelos Ocultos de Markov, y los movimientos simples son reconocidos usando el Ajuste de Tiempo Dinámico. De esa manera, solo los movimientos son dependientes en el hardware de los dispositivos empleado para recolectar información, y la precisión del reconocimiento de acciones complejas mejora considerablemente. Una validación experimental real es también llevada a cabo para evaluar y comparar el rendimiento de la solución propuesta.
+\begin{}\textbf{Palabras clave:} Industria 4.0; Patrón de reconocimiento; Ajuste de Tiempo Dinámico; Inteligencia Artificial; Modelos Ocultos de Markov.\end
 
     
     \end{abstract}
@@ -26,19 +28,20 @@
 
 %-Contents
 
-\section{Introducci�n}
-This template provides a sample layout of a Standard \LaTeX{} Article.
+\section{Introducción}
+Industria 4.0 [1] hace referencia al uso de Sistemas Ciberfísicos (unión de procesos físicos y cibernéticos) [2] como el componente tecnológico principal en soluciones digitales futuras, principalmente (pero no únicamente) en escenarios industriales. Normalmente, la digitalización ha causado, al final, que los trabajadores en las líneas de ensamble fueran sustituidos por robots durante la tercera revolución industrial.
+Sin embargo, algunas aplicaciones industriales no pueden basarse en soluciones tecnológicas, siendo el trabajo humano aún esencial [3]. Los productos hechos a mano son un ejemplo de las aplicaciones donde la presencia del trabajo humano es esencial. Estos sectores industriales, en cualquier caso, debe ser también integrado en la cuarta revolución industrial. De la unión de los Sistemas Ciberfísicos (CPS) y los humanos actuando como proveedores de servicio (trabajos activos), surgimiento del CPS humanizado [4]. En estos nuevos sistemas, los procesos antropogénicos son permitidos [5]; i.e. los procesos que son conocidos, ejecutados y manejados por personas (a pesar de que deben ser vigilados por mecanismos digitales).
+Para crear una integración real entre personas y tecnología, y mover la ejecución del proceso del subsistema social (humanos) al mundo cibernético (componentes de hardware y software), las técnicas de la extracción de la información son necesarias. Muchas soluciones diferentes y acercamientos han sido reportados durante los últimos años, pero las técnicas de reconocimiento de patrones son las más prometedoras.
+El uso de Inteligencia Artificial, modelos estadísticos y otros instrumentos similares han permitido un real e increíble desarrollo de soluciones de reconocimiento de patrones, pero algunos desafíos todavía siguen pendientes.
+Primero, las técnicas de reconocimiento de patrones dependen del hardware subyacente para captar información. La estructura y los cambios en el proceso de aprendizaje si (por ejemplo) en vez de acelerómetros que  consideramos sensores infrarrojos. Esto es muy problemático debido a que las tecnologías de hardware evolucionan mucho más rápido que las soluciones de software.
+Y, segundo, hay un límite en la precisión en el proceso de reconocimiento. En realidad, como las acciones humanas se vuelven más complicadas, más variables y más modelos complejos son requeridos para reconocerlos. Esta aproximación genera grandes problemas de optimización cuyo error residual es más alto según aumenta el número de variables; lo que lo que provoca una disminución en la tasa de éxito del reconocimiento [6]. En conclusión, las matemáticas (no el software, por lo que, no depende de la implementación) fuerza una cierta precisión para el proceso del reconocimiento de patrones haciendo que las acciones sean estudiadas. Para prevenir esta situación, se debe considerar un número más bajo de variables, pero esto también reduce la complejidad de las acciones que deben ser analizadas; una solución que no es aceptable en escenarios industriales donde las actividades de producción complejas son desarrolladas.
+Por lo tanto, el objetivo de este artículo es describir un nuevo algoritmo de reconocimiento de patrones abordando estos dos problemas básicos. El mecanismo propuesto define las acciones como una composición de movimientos simples. Los movimientos simples son reconocidos usando las técnicas de la Deformación Dinámica del Tiempo (DTW) [7]. Este proceso es dependiente de un hardware concreto para captar la información; pero la DTW es muy flexible y actualizar el repositorio de patrones es suficiente para reconfigurar todo el algoritmo. Luego las acciones complejas son reconocidas como combinaciones de movimientos simples a través de los Modelos Ocultos de Markov (HMM) [8]. Estos modelos son totalmente independientes de las tecnologías de hardware, ya que sólo se consideran como acciones simples. Este acercamiento de dos fases también reduce la complejidad de los modelos, incrementando la precisión y la tasa de éxito en el proceso de reconocimiento.
+El resto del artículo está organizado de esta manera: La sección 2 describe el estado del arte en el reconocimiento de patrones para las actividades humanas; la sección 3 describe la solución propuesta, incluyendo las dos fases definidas; la sección 4 presenta un validación experimental usando un escenario real y usuarios finales; y la sección 5 cierra el artículo. 
 
-The front matter has a number of sample entries that you should replace
-with your own. 
-
-\section{Document Class Options}
-The typesetting specification selected by this document template
-uses the default class options. There are a number of class options 
-supported by this document class. The available options include 
-setting the paper size, the point size of the font used in the 
-document body and others.
-
+\section{El estado del arte en el patrón de reconocimiento}
+Muchas técnicas de patrón de reconocimiento distintas para actividades humanas han sido informadas. Sin embargo, la mayoría de las propuestas comunes pueden ser clasificadas en cinco categorías basicas [9]:(i)Modelos Ocultos de Markov; (ii) Campo Aleatorio Condicional con Cadenas de Salto; (iii) Patrones Emergentes; (iv) Campo Aleatorio Condicional; y (v) Clasificadores Bayesianos.
+\setlegtth{\parindent}{<}\begin{}De hecho, la mayoría de autores proponen el suo de Cadenas Ocultas de Marcov (COM) para modelar actividades humanas. COM permite modelar acciones como cadenas de Markov [10][11]. Basicamente, COM genera estados ocutos desde datos observables. En particular, el objetivo final de esta técnica es construir la secuenciade estados ocultos que encaja con cierta secuencia de datos. Para finalmente definir el modelo completo, COM debe deducir desde los datos los parametros del modelo de na manera confiable. La Figura 1 muestra una representación esquematizada
+sobre como COM funciona. Cuando las actividades humanas son reconocidas, las acciones que componen las actividades son los estados ocultos, y las respuestas de un sensor son datos bajo estudio. COM, además, permite el uso de tecnicas de aprendizaje considerando el conocimiento anterior sobre el modelo. Este aprendizaje es algunas veces esencial para ``inducir´´ todas las secuencias de datos posibles requeridas para calcular el COM. Finalmente, es muy importante notar que el COM aislado simple puede ser combinado para crear modelos más amplios y más complejos.  
 \subsection{Customizing Class Options}
 Select `Insert', `Document Properties ...', the `Generic' tab
 and then modify desired class options in appeared dialog.

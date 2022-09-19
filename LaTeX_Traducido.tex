@@ -1,11 +1,10 @@
 %&latex
-\author{Miguel González}
+\author{Miguel Gonzalez}
 \documentclass[a4paper]{article}
 
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
-
 \begin{document}
 
 %+Title
@@ -17,15 +16,17 @@
 \maketitle
 %-Title
 
-\begin{}
+\begin{center}
     \textbf{Resumen: }Futuros sistemas industiales, una revolución conocida como Industria 4.0, son visualizados para integrar a la gente en el mundo cibernetico como prsosumidores (proveedores de servicios y consumidores). En este contexto, los procesos impulsados por humanos aparecen como una realidad esencial y aparecen instrumentos para crear bucles de información de opiniones entre el subsistema social (personas) y el subsistema cibernético (componentes tecnológicos) son requeridos. Aunque muchos instrumentos distintos han sido propuestos, hoy en día las técnicas del patrón de reconocimiento son las más prometedoras. Sin embargo, estas soluciones presentan algunos  problemas pendientes. Por ejemplo, estas técnicas dependen de el hardware seleccionado para adquirir información de los usuarios; o presentan un límite en la precisión del proceso de reconocimiento. Para abordar esta situación, en este artículo se propone un algorítmo de dos fases para integrar a las personas en el sistema de la Industria 4.0 y los procesos impulsados por humanos. El algoritmo describe acciones complejas como composiciones de movimientos simples. Acciones complejas reconocidas usando los Modelos Ocultos de Markov, y los movimientos simples son reconocidos usando la Deformación Dinámica del Tiempo. De esa manera, solo los movimientos son dependientes en el hardware de los dispositivos empleado para recolectar información, y la precisión del reconocimiento de acciones complejas mejora considerablemente. Una validación experimental real es también llevada a cabo para evaluar y comparar el rendimiento de la solución propuesta.
+    \end{center}
 \maketitle
 
-\begin{}
-        \textbf{Palabras clave:} Industria 4.0; Patrón de reconocimiento; Deformación Dinámica del Tiempo; Inteligencia Artificial; Modelos Ocultos de Markov.\end
+\begin{center}
+    
+        \textbf{Palabras clave:} Industria 4.0; Patrón de reconocimiento; Deformación Dinámica del Tiempo; Inteligencia Artificial; Modelos Ocultos de Markov.
 
     
-    \end{abstract}
+    \end{center}
 %-Abstract
 
 %+Contents
@@ -44,16 +45,19 @@ El resto del artículo está organizado de esta manera: La sección 2 describe e
 
 \section{El estado del arte en el patrón de reconocimiento}
 Muchas técnicas de patrón de reconocimiento distintas para actividades humanas han sido informadas. Sin embargo, la mayoría de las propuestas comunes pueden ser clasificadas en cinco categorías basicas [9]:(i)Modelos Ocultos de Markov; (ii) Campo Aleatorio Condicional con Cadenas de Salto; (iii) Patrones Emergentes; (iv) Campo Aleatorio Condicional; y (v) Clasificadores Bayesianos.
-\setlegtth{\parindent}{<}\begin{}De hecho, la mayoría de autores proponen el suo de Modelos Ocultos de Marcov (MOM) para modelar actividades humanas. MOM permite modelar acciones como cadenas de Markov [10][11]. Basicamente, MOM genera estados ocutos desde datos observables. En particular, el objetivo final de esta técnica es construir la secuenciade estados ocultos que encaja con cierta secuencia de datos. Para finalmente definir el modelo completo, MOM debe deducir desde los datos los parametros del modelo de na manera confiable. La Figura 1 muestra una representación esquematizada
+\begin{center}De hecho, la mayoría de autores proponen el suo de Modelos Ocultos de Marcov (MOM) para modelar actividades humanas. MOM permite modelar acciones como cadenas de Markov [10][11]. Basicamente, MOM genera estados ocutos desde datos observables. En particular, el objetivo final de esta técnica es construir la secuenciade estados ocultos que encaja con cierta secuencia de datos. Para finalmente definir el modelo completo, MOM debe deducir desde los datos los parametros del modelo de na manera confiable. La Figura 1 muestra una representación esquematizada
 sobre como MOM funciona. Cuando las actividades humanas son reconocidas, las acciones que componen las actividades son los estados ocultos, y las respuestas de un sensor son datos bajo estudio. MOM, además, permite el uso de tecnicas de aprendizaje considerando el conocimiento anterior sobre el modelo. Este aprendizaje es algunas veces esencial para ``inducir´´ todas las secuencias de datos posibles requeridas para calcular el MOM. Finalmente, es muy importante notar que el MOM aislado simple puede ser combinado para crear modelos más amplios y más complejos. 
-
-\center\includegraphics{fig_1.png} 
-\center\begin{}\textbf{Fig. 1.} Representación gráfica de un MOM
-\setlegtth{\parindent}{<}
-        \begin{}
+\end{center}
+\center\includegraphics[scale=1,bb=0 0 30 30]{Fig_1} 
+\begin{center}\textbf{Fig. 1.} Representación gráfica de un MOM\end{center}
+        \begin{center}
                 MOM, no obstante, son inútiles para modelar ciertas actividades concurrentes, así que otros autores han informado una nueva técnica llamada, Campo Aleatorio Condicional (CAC). CAC es uutilizado para modelar aquellas actividades que presentan acciones concurrentes o, en general, multiples acciones que interactuan [12][13]. Además, MOM requiere un gran esfuerzo en aprendizaje para descubrir todos los estados ocultos posibles. Para resolver estos problemas, el Campo Aleatorio Condicional (CAC) emplea probabilidades condicionales en vez de distribuciones de probabilidad unidas. De esa manera, las actividades cuyas acciones son desarrolladas en cualquier orden pueden ser facilmente modeladas. Contrariamente a las cadenas en MOM, CAC emplea gráficos acíclicos, y posibilita la integración de estados ocultos condicionales (estados que dependen de pasadas y/o futuras observaciones).
-\setlegtth{\parindent}{<}\begin{}CAC, por otro lado, sigue siendo inútil para modelar ciertos comportamientos, así que algunas propuestas generalizan este concepto y proponen el Campo Aleatorio Condicional con Cadenas de Salto
+                \end{center}
+\begin{center}
+    
+CAC, por otro lado, sigue siendo inútil para modelar ciertos comportamientos, así que algunas propuestas generalizan este concepto y proponen el Campo Aleatorio Condicional con Cadenas de Salto
 (CACCS). CACCS es una técnica de patrón de reconocimiento, más general que CAC, que posibilita modelar actividades que no son de naturaleza de secuencias de acciones [14]. Esta técnica intenta capturar dependencias de largo rango (cadena de salto); y y podría ser entendido como el producto de diferentes cadenas lineales. Sin embargo, calcular este producto es bastante pesado y complicado, asi que esta técnica es normalmente demasiado computacionalmente cara para ser implementada en pequeños sistemas integrados.
+\end{center}
 
 %+Bibliography
 \begin{thebibliography}{99}

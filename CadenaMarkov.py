@@ -38,9 +38,7 @@ class MarkovChainGraphUndirectedUnweighted:
         return ""
 
 
-def get_transitions(
-    start: str, transitions: list[tuple[str, str, float]], steps: int
-) -> dict[str, int]:
+def get_transitions(start: str, transitions: list[tuple[str, str, float]], steps: int) -> dict[str, int]:
     """
     Running Markov Chain algorithm and calculating the number of times each node is
     visited
